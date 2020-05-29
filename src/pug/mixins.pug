@@ -1,0 +1,3 @@
+mixin svg(svg_url, width, height)
+  svg(width= width height= height)
+    use(xlink:href="img/sprite.svg#" + svg_url)

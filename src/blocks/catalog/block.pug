@@ -1,0 +1,38 @@
+mixin item(title, size, area, features, price, src, features)
+  +e.LI.item
+    +e.img-wrapper
+      +e(src= src)
+    +e.text-wrapper
+      +e.H3.title
+        +e(href="#").link= title
+      +e.desc
+        +e.size Размеры (ШхГхВ) - #{size} см
+        +e.area Площадь - #{area} м2
+        +e.feature
+          +e.H4.feature-title Оснащение номера
+          +e.UL.feature-list
+            each feature in features
+              +e.LI.feature-item
+                +svg(feature, 16, 16)
+      +e.price Цена за сутки:
+        span #{price}₽
+      +e.BUTTON.btn Забронировать
+
+
+- var features1 = ['icon-features1']
+- var features2 = ['icon-features2', 'icon-features3']
+- var features3 = ['icon-features2', 'icon-features3', 'icon-features4']
+- var features4 = ['icon-features2', 'icon-features3', 'icon-features4']
+- var features5 = ['icon-features2', 'icon-features3', 'icon-features4', 'icon-features5']
+- var features6 = ['icon-features2', 'icon-features3', 'icon-features4', 'icon-features5']
+
+
+
++b.SECTION.catalog
+  +e.UL.list
+    +item("Эконом", "90х70х180", "0,63", null, 100, "/img/cat1.jpg", features1)
+    +item("Эконом плюс", "90х100х180", "0,90", null, 200, "/img/cat2.jpg", features2)
+    +item("Комфорт", "100х125х180", "1,13", null, 250, "/img/cat3.jpg", features3)
+    +item("Сьют", "125х125х180", "1,56", null, 350, "/img/cat4.jpg", features4)
+    +item("Люкс", "160х160х180", "2,56", null, 500, "/img/cat5.jpg", features5)
+    +item("Супер-Люкс", "180х160х180", "2,88", null, 600, "/img/cat6.jpg", features6)

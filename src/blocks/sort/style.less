@@ -1,0 +1,85 @@
+.nativejs-select {
+  margin: 0;
+  width: 100%;
+  min-width: 170px;
+  border: 0;
+  border-radius: 3px;
+  box-shadow: 0 4px 4px 0 fade(black, 25%);
+
+  [data-selected="true"] {
+    display: none;
+  }
+
+  &__placeholder {
+    padding: 9px 15px 10px;
+    background-color: white;
+    color: inherit;
+    font-size: 14px;
+
+    &::after {
+      border: 0;
+      width: 14px;
+      height: 8px;
+      transform: translateY(-50%) rotate(180deg);
+      background-image: url(../img/sort-arrow.svg);
+      background-repeat: no-repeat;
+    }
+
+    &:hover,
+    &:focus {
+      color: fade(@text-color, 50%);
+    }
+
+    &:active {
+      color: fade(@text-color, 70%);
+    }
+  }
+
+  &_active .nativejs-select {
+    &__placeholder {
+      &::after {
+        border: 0;
+        transform: translateY(-50%) rotate(0);
+      }
+    }
+  }
+
+  &__options {
+    border: inherit;
+    box-shadow: inherit;
+    left: 0;
+    bottom: 1px;
+  }
+
+  &__option {
+    border: inherit;
+  }
+
+  &__option_btn {
+    padding: 9px 15px 10px;
+    color: inherit;
+    font-size: 14px;
+    font-style: inherit;
+    background: white;
+    border: inherit;
+
+    &:hover {
+      border: 0;
+    }
+
+    &:hover,
+    &:focus {
+      color: fade(black, 50%);
+    }
+
+    &:active {
+      color: fade(black, 70%);
+    }
+  }
+}
+
+@media (max-width: @tablet-width) {
+  .sort {
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,146 @@
+.top-menu {
+  &__inner {
+    display: flex;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: white;
+  }
+
+  &__logo-link {
+    display: inline-block;
+    padding: 10px 0 9px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover img,
+    &:focus img {
+      opacity: 0.5;
+    }
+
+    &:active img {
+      opacity: 0.8;
+    }
+  }
+
+  &__list {
+    .list-style-reset();
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  &__item {
+    margin-right: 30px;
+  }
+
+  &__link {
+    display: block;
+    padding: 26px 0 27px;
+    color: inherit;
+    font-weight: @semibold;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+      outline: none;
+    }
+
+    &:active {
+      opacity: 0.8;
+    }
+  }
+
+  &__mobile-toggle {
+    display: none;
+  }
+
+  &__sticky {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 0 10px 0 fade(black, 10%);
+  }
+
+  @media (max-width: @tablet-width) {
+    &__inner {
+      display: block;
+      padding: 0;
+    }
+
+    .separator() {
+      border-bottom: 1px solid fade(@gray, 50%);
+      box-shadow: inset 0 -1px 0 0 @gray;
+    }
+
+    &__logo {
+      position: relative;
+      color: inherit;
+      text-align: center;
+      .separator();
+    }
+
+    &__link {
+      .separator();
+    }
+
+    &__item {
+      margin: 0;
+    }
+
+    &__mobile-toggle {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      display: block;
+      line-height: 40px;
+      margin-top: -20px;
+      border: 0;
+      color: white;
+      font-size: 32px;
+      text-align: center;
+      background-color: @orange;
+      cursor: pointer;
+      outline: none;
+
+      &::before {
+        content: "\2630";
+      }
+
+      &:hover,
+      &:focus {
+        background-color: @dark-orange;
+      }
+    }
+
+    &--mobile-open &__mobile-toggle {
+      &::before {
+        content: "\2716";
+        padding: 0 0.04em;
+      }
+    }
+
+    &__list {
+      display: none;
+    }
+
+    &--mobile-open &__list {
+      position: absolute;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: block;
+      text-align: center;
+      background-color: inherit;
+    }
+
+    &__sticky &__list {
+      position: static;
+    }
+  }
+}

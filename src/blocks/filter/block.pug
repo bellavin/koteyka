@@ -1,0 +1,40 @@
+mixin item(id, name, value, text, checked)
+  +e.LI.item
+    input(type="checkbox" name= name id= id value= value checked= checked).visually-hidden.input-check
+    label(for= id).label-check #{text}
+
+
++b.filter
+  +e.BUTTON.mobile-toggle Фильтр
+  +e.FORM(method="get" action="https://echo.htmlacademy.ru").form
+    +e.FIELDSET.fieldset--price
+      +e.LEGEND.title Цена за сутки,₽
+      +e.price
+        +e.price-group
+          +e.LABEL(for="filter-num-min").label-num от
+          +e.INPUT(id="filter-num-min" type="number" value="100" name="min-price" min="0" max="99999").input-num
+        +e.price-group
+          +e.LABEL(for="filter-num-max").label-num до
+          +e.INPUT(id="filter-num-max" type="number" value="600" name="max-price" min="0" max="99999").input-num
+
+    +e.FIELDSET.fieldset
+      +e.LEGEND.title Площадь
+      +e.UL.list
+        +item("filter-063", "filter-area", 0.63, "0,63 м2", true)
+        +item("filter-090", "filter-area", 0.90, "0,90 м2", true)
+        +item("filter-113", "filter-area", 1.13, "1,13 м2", true)
+        +item("filter-156", "filter-area", 1.56, "1,56 м2", true)
+        +item("filter-256", "filter-area", 2.56, "2,56 м2", true)
+        +item("filter-257", "filter-area", 2.56, "2,56 м2", true)
+    +e.FIELDSET.fieldset
+      +e.LEGEND.title Оснащение номера
+      +e.UL.list
+        +item("filter-empty",        "filter-features", "empty",        "Пустой номер")
+        +item("filter-bed",          "filter-features", "bed",          "Лежак", true)
+        +item("filter-claw-point",   "filter-features", "claw-point",   "Когтеточка", true)
+        +item("filter-game-complex", "filter-features", "game-complex", "Игровой-комплекс", true)
+        +item("filter-house",        "filter-features", "house",        "Домик", true)
+
+    +e.btns
+      +e(type="submin").btn--submit Применить
+      +e(type="reset").btn--reset Сбросить фильтр

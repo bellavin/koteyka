@@ -1,0 +1,27 @@
+.page-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  box-sizing: border-box;
+  padding: 60px 20px 59px;
+
+  &__title {
+    margin: 0;
+    font-family: Rubik;
+    font-size: 36px;
+    font-weight: bold;
+  }
+
+}
+
+
+@media (max-width: @tablet-width) {
+  .page-title {
+    display: block;
+    padding: 30px 20px 30px;
+  }
+
+  .sort {
+    margin-top: 10px;
+  }
+}
