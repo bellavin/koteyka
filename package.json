@@ -41,7 +41,7 @@
     "gulp-sourcemaps": "2.6.5",
     "gulp-svgstore": "7.0.1",
     "gulp-uglify": "3.0.2",
-    "gulp-w3c-html-validator": "2.0.1",
+    "gulp-w3c-html-validator": "5.1.3",
     "readable-stream": "3.6.0"
   },
   "dependencies": {}
